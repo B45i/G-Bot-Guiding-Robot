@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "G-Bot",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
