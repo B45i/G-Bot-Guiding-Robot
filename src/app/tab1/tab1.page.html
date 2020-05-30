@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Connect to a Bot
+      Connect to a Device
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,17 +9,24 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-list-header>
-      {{ this.devices.length ? 'Devices:' : 'No Devices Available'}}
+      {{ this.bluetoothService.devices?.length ? 'Devices:' : 'No Devices Available'}}
+      <ion-button size="small" (click)="bluetoothService.getDevices()">
+        <ion-icon name="refresh-outline"></ion-icon>
+      </ion-button>
     </ion-list-header>
 
-    <ion-item *ngFor="let device of devices">
-      <ion-avatar slot="start">
+    <ion-item *ngFor="let device of bluetoothService.devices" (click)="bluetoothService.selectDevice(device)"
+      [disabled]="bluetoothService.isLoading || bluetoothService.isConnected">
+      <ion-avatar slot="start" style="height: 100%; font-size: 30px;">
         <ion-icon name="bluetooth"></ion-icon>
       </ion-avatar>
       <ion-label>
         <h2>{{ device.name }}</h2>
         <h3>Class: {{ device.class }}</h3>
         <h3>Address: {{ device.address }}</h3>
+        <ion-progress-bar
+          *ngIf="bluetoothService.selectedDevice && bluetoothService.selectedDevice.address === device.address && bluetoothService.isLoading"
+          type="indeterminate"></ion-progress-bar>
       </ion-label>
     </ion-item>
   </ion-list>
