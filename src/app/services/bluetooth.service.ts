@@ -68,13 +68,13 @@ export class BluetoothService {
     await alert.present();
   }
 
-  public sendData() {
+  public sendData(data: string) {
     if (!this.selectedDevice) {
       this.showAlert('No Device Selected');
       return;
     }
-    this.bluetoothSerial.write('25').then(
-      success => this.showAlert('Success', 'Success'),
+    this.bluetoothSerial.write(data).then(
+      success => this.showAlert('Navigation Initiated', 'Success'),
       failure => this.showAlert('Transfer Failed')
     );
   }

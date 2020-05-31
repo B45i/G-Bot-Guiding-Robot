@@ -1,11 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      PNR
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button expand="block" (click)="bluetoothService.sendData()" [disabled]="!bluetoothService.isConnected">Send '25'</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-label>PNR Number <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input placeholder="Enter PNR Number" [(ngModel)]="pnrNumber" required></ion-input>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" (click)="findPNR()" [disabled]="!bluetoothService.isConnected || !pnrNumber">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
