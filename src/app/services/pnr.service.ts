@@ -53,7 +53,7 @@ const PNRData = `
 		},
 		{
 			"pnrno": "123456",
-			"Name": "Test",
+			"Name": "Amal",
 			"Flight": "TestFlight",
 			"locid": "130",
 			"locname": "Check in Counter 10 - TestFlight"
