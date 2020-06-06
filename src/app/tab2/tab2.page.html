@@ -14,7 +14,7 @@
         <ion-input placeholder="Enter PNR Number" [(ngModel)]="pnrNumber" required></ion-input>
       </ion-col>
       <ion-col size="2">
-        <ion-button expand="block" (click)="findPNR()" [disabled]="!bluetoothService.isConnected || !pnrNumber">
+        <ion-button expand="block" (click)="findPNR()" [disabled]="!pnrNumber">
           <ion-icon name="search-outline"></ion-icon>
         </ion-button>
       </ion-col>
